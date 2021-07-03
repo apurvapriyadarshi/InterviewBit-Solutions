@@ -1,0 +1,24 @@
+public class Solution {
+    public void rotate(ArrayList<ArrayList<Integer>> a) {
+        
+        int n= a.get(0).size();
+        int q1,q2,q3,q4;
+        for(int i=0 ;i<n/2;i++)
+        {
+            for(int j=i;j<n-i-1;j++)
+            {
+                //q1 = a.get(j).get(i);
+                //q2 = a.get(i).get(n-j-1);
+                //q3 = a.get(n-1-j).get(n-1-i);
+                //q4 = a.get(n-1-i).get(j);
+                //System.out.println(q1+ ":"+q2+":"+q3+":"+q4);
+                int temp=a.get(i).get(j);
+                a.get(i).set(j,a.get(n-j-1).get(i));
+                a.get(n-j-1).set(i,a.get(n-1-i).get(n-j-1));
+                a.get(n-i-1).set(n-j-1,a.get(j).get(n-1-i));
+                a.get(j).set(n-1-i,temp);
+            }
+        }
+        
+    }
+}
