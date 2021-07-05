@@ -1,0 +1,32 @@
+public class Solution {
+   
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public String largestNumber(final int[] A) {
+        String ans="";
+        if(A.length == 0)
+        return "";
+        String[] arr= new String[A.length];
+        int countzero=0;
+        for(int i=0;i<A.length;i++)
+        {
+            if(A[i]==0) countzero++;
+            arr[i]=Integer.toString(A[i]);
+        }
+        if(countzero == A.length)
+        return "0";
+        
+        Arrays.sort(arr,new Comparator<String>(){
+       public int compare(String a,String b){
+       String ab=a+b;
+       String ba=b+a;
+       
+       return ba.compareTo(ab);
+        }
+        });
+        for(int i=0;i<arr.length;i++)
+        ans+=arr[i];
+        
+        return ans;
+        
+    }
+}
