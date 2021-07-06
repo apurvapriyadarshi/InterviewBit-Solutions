@@ -1,0 +1,25 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int maximumGap(final int[] A) {
+        int n=A.length;
+        int min[]=new int[n];
+        int max[]=new int[n];
+        min[0]=A[0];
+        max[n-1]=A[n-1];
+        for(int i=1;i<n;i++) min[i]=Math.min(min[i-1],A[i]);
+        for(int i=n-2;i>=0;i--) max[i]=Math.max(max[i+1],A[i]);
+        int x=0,y=0,ans=0;
+        while(x<n && y<n){
+            if(min[x] <= max[y]){
+                ans=Math.max(ans,y-x);
+                y++;
+            }
+            else
+                x++;
+        }
+        return ans;
+        
+        
+        
+    }
+}
