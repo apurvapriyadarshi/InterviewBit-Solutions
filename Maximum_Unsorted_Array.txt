@@ -1,0 +1,34 @@
+public class Solution {
+    public int[] subUnsort(int[] A) {
+        
+        int arr[]= new int[A.length];
+        for(int i=0;i<A.length;i++)
+        {
+            arr[i]=A[i];
+        }
+        
+        Arrays.sort(A);
+        
+        int fstart=-1,fend=-1;
+        for(int i=0;i<A.length;i++)
+        {
+            if(fstart == -1 && A[i] != arr[i])
+                fstart=i;
+            else if(fstart >-1 && A[i] != arr[i])
+                fend=i;
+        }
+        int ans[]=new int[2];
+        if(fstart<fend){
+        ans[0]=fstart;ans[1]=fend;
+        }
+        else
+        {
+            ans=new int[1];
+        ans[0]=-1;
+        }
+        
+        return ans;
+        
+        
+    }
+}
