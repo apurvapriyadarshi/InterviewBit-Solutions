@@ -1,0 +1,30 @@
+public class Solution {
+    public int solve(int A, ArrayList<Integer> B) {
+        int sum=0;
+        for(int i : B){
+            sum=sum+i;
+        }
+        int ans=0;
+        if(sum%3==0){
+            int part=sum/3;
+            int num2=part*2;
+            int s=0;
+            int c1=0;
+            for(int i=0;i<B.size()-1;i++)
+            {
+                s=s+B.get(i);
+                if(s==num2)
+                {
+                    ans=ans+c1;
+                }
+                if(s==part)
+                {
+                    c1++;
+                }
+            }
+        }
+        return ans;
+        
+        
+    }
+}
